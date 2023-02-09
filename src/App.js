@@ -131,10 +131,7 @@ function formatOperand(operand) {
 }
 
 function App() {
-  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
-    reducer,
-    {}
-  )
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {})
 
   return (
     <div className="calculator-grid">
@@ -144,15 +141,8 @@ function App() {
         </div>
         <div className="current-operand">{formatOperand(currentOperand)}</div>
       </div>
-      <button
-        className="span-two"
-        onClick={() => dispatch({ type: ACTIONS.CLEAR })}
-      >
-        AC
-      </button>
-      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
-        DEL
-      </button>
+      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.CLEAR })} >AC</button>
+      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}> DEL </button>
       <OperationButton operation="÷" dispatch={dispatch} />
       <DigitButton digit="1" dispatch={dispatch} />
       <DigitButton digit="2" dispatch={dispatch} />
@@ -168,12 +158,7 @@ function App() {
       <OperationButton operation="-" dispatch={dispatch} />
       <DigitButton digit="." dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
-      <button
-        className="span-two"
-        onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
-      >
-        =
-      </button>
+      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.EVALUATE })}> = </button>
     </div>
   )
 }
