@@ -120,7 +120,7 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   return computation.toString()
 }
 
-const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-IN", {
   maximumFractionDigits: 0,
 })
 function formatOperand(operand) {
